@@ -32,11 +32,11 @@ func H2CServerUpgrade() {
 	})
 
 	server := &http.Server{
-		Addr:    "0.0.0.0:1010",
+		Addr:    "0.0.0.0:8080",
 		Handler: h2c.NewHandler(handler, h2s),
 	}
 
-	fmt.Printf("Listening [0.0.0.0:1010]...\n")
+	fmt.Printf("Listening [0.0.0.0:8080]...\n")
 	checkErr(server.ListenAndServe(), "while listening")
 }
 
@@ -45,10 +45,10 @@ func H2CServerUpgrade() {
 func H2CServerPrior() {
 	server := http2.Server{}
 
-	l, err := net.Listen("tcp", "0.0.0.0:1010")
+	l, err := net.Listen("tcp", "0.0.0.0:8080")
 	checkErr(err, "while listening")
 
-	fmt.Printf("Listening [0.0.0.0:1010]...\n")
+	fmt.Printf("Listening [0.0.0.0:8080]...\n")
 	for {
 		conn, err := l.Accept()
 		checkErr(err, "during accept")

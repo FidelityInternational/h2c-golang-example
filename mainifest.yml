@@ -1,0 +1,6 @@
+---
+applications:
+- name: app-package-name1
+  env:
+    GO_INSTALL_PACKAGE_SPEC: github.com/thrawn01/h2c-golang-example/cmd/server
+
